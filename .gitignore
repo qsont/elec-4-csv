@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Output files (optional - comment out if you want to commit processed results)
+server/output/*.csv
+server/output/*.json
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Keep example files
+!server/output/.gitkeep
