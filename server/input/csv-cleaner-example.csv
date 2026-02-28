@@ -1,0 +1,9 @@
+Name , Email Address, Phone #, Date Joined, Status
+John Doe, john@example.com, 555-1234, 01/15/2023, Active
+Jane Smith, jane@example.com, 555-5678, 2023-02-20, Active
+,,,,
+Bob Jones, bob@example.com, , 03/10/2023,
+John Doe, john@example.com, 555-1234, 01/15/2023, Active
+Alice Brown, alice@example.com, 555-9999, 2023-04-05, Inactive
+  , , , ,
+Charlie Davis, charlie@, 555-1111, 05-15-2023, Active

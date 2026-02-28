@@ -1,0 +1,113 @@
+name: CSV Processing Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'server/input/**/*.csv'
+      - 'server/src/**/*.py'
+      - '.github/workflows/csv-pipeline.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'server/input/**/*.csv'
+      - 'server/src/**/*.py'
+  workflow_dispatch:
+    inputs:
+      csv_file:
+        description: 'CSV file to process (relative to server/input/)'
+        required: false
+        default: 'all'
+
+jobs:
+  process-csv:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas numpy
+        pip install pytest  # Optional: for running tests
+    
+    - name: Create output directory
+      run: |
+        mkdir -p server/output
+    
+    - name: Process CSV files
+      id: process
+      run: |
+        cd server/src
+        
+        if [ "${{ github.event.inputs.csv_file }}" == "all" ] || [ -z "${{ github.event.inputs.csv_file }}" ]; then
+          echo "Processing all CSV files in input directory..."
+          python pipeline.py --dir ../input --output ../output
+        else
+          echo "Processing specific file: ${{ github.event.inputs.csv_file }}"
+          python pipeline.py "../input/${{ github.event.inputs.csv_file }}" --output ../output
+        fi
+      continue-on-error: false
+    
+    - name: Run tests (optional)
+      if: always()
+      run: |
+        cd server/tests
+        # pytest test_*.py  # Uncomment when you have tests
+        echo "Tests would run here"
+      continue-on-error: true
+    
+    - name: Upload processing results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: csv-processing-results
+        path: |
+          server/output/*.csv
+          server/output/*.json
+        retention-days: 30
+    
+    - name: Generate processing summary
+      if: always()
+      run: |
+        cd server/output
+        echo "## CSV Processing Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Generated Files:" >> $GITHUB_STEP_SUMMARY
+        ls -lh *.csv *.json 2>/dev/null | awk '{print "- " $9 " (" $5 ")"}' >> $GITHUB_STEP_SUMMARY || echo "No files generated" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Quality Reports:" >> $GITHUB_STEP_SUMMARY
+        if [ -f "*_quality_report.csv" ]; then
+          head -n 10 *_quality_report.csv >> $GITHUB_STEP_SUMMARY
+        fi
+    
+    - name: Commit results (optional)
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add server/output/*
+        git diff --staged --quiet || git commit -m "Auto-update: CSV processing results [skip ci]"
+        # Uncomment to push results back to repo:
+        # git push
+    
+    - name: Create issue on failure
+      if: failure() && github.event_name == 'push'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: 'CSV Processing Pipeline Failed',
+            body: `The CSV processing pipeline failed on commit ${context.sha}.\n\nPlease check the logs: ${context.payload.repository.html_url}/actions/runs/${context.runId}`,
+            labels: ['bug', 'automated']
+          })
