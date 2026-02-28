@@ -196,7 +196,21 @@ def generate_cleaned_output_csv(csv_file: str, output_dir: str = None, verbose: 
         print(f"Duplicate rows removed: {duplicates_count}")
         print(f"Rows: {rows_before} → {rows_after}")
     
-    # ===== STEP 5: HANDLE MISSING VALUES =====
+    # ===== STEP 5: REMOVE COMPLETELY EMPTY ROWS =====
+    if verbose:
+        print("\n" + "=" * 60)
+        print("REMOVING BLANK ROWS")
+        print("=" * 60)
+    
+    rows_before_blank = len(df)
+    df = df.dropna(how='all')
+    blank_rows_removed = rows_before_blank - len(df)
+    
+    if verbose:
+        print(f"Completely blank rows removed: {blank_rows_removed}")
+        print(f"Rows: {rows_before_blank} → {len(df)}")
+    
+    # ===== STEP 6: HANDLE MISSING VALUES =====
     if verbose:
         print("\n" + "=" * 60)
         print("HANDLING MISSING VALUES")
@@ -233,12 +247,6 @@ def generate_cleaned_output_csv(csv_file: str, output_dir: str = None, verbose: 
             
             if verbose:
                 print(f"  {col}: {missing_count} missing → filled with {fill_value}")
-    
-    # ===== STEP 6: REMOVE COMPLETELY EMPTY ROWS =====
-    df = df.dropna(how='all')
-    
-    if verbose:
-        print("\n✓ Removed completely empty rows")
     
     # ===== SAVE CLEANED DATA =====
     if output_dir is None:
