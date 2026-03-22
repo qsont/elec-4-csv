@@ -6,7 +6,22 @@ Perfect for CI/CD environments like GitHub Actions.
 
 import sys
 import os
+import logging
 from typing import List, Dict, Any
+
+# --- LOGGING SETUP ---
+log_dir = os.path.join(os.path.dirname(__file__), '..', 'logs')
+os.makedirs(log_dir, exist_ok=True)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(log_dir, 'pipeline_execution.log')),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+# ---------------------
 
 # Import all processing functions
 from generate_cleaned_output_csv import generate_cleaned_output_csv
@@ -28,13 +43,13 @@ def run_pipeline(csv_file: str, output_dir: str = None, verbose: bool = True) ->
     Returns:
         dict: Results from all processing steps
     """
-    print("=" * 70)
-    print("CSV PROCESSING PIPELINE")
-    print("=" * 70)
-    print(f"Input File: {csv_file}")
-    print(f"Output Directory: {output_dir or 'default (../output/)'}")
-    print("=" * 70)
-    print()
+    logging.info("=" * 70)
+    logging.info("CSV PROCESSING PIPELINE")
+    logging.info("=" * 70)
+    logging.info(f"Input File: {csv_file}")
+    logging.info(f"Output Directory: {output_dir or 'default (../output/)'}")
+    logging.info("=" * 70)
+    logging.info("")
     
     results = {
         'input_file': csv_file,
@@ -44,41 +59,42 @@ def run_pipeline(csv_file: str, output_dir: str = None, verbose: bool = True) ->
     
     try:
         # Step 1: Clean CSV
-        print("\n[1/5] Running CSV Cleaning...")
+        logging.info("\n[1/5] Running CSV Cleaning...")
         results['steps']['cleaning'] = generate_cleaned_output_csv(csv_file, output_dir, verbose)
         
         # Step 2: Generate Summary Report
-        print("\n[2/5] Generating Summary Report...")
+        logging.info("\n[2/5] Generating Summary Report...")
         results['steps']['summary'] = generate_summary_report_csv(csv_file, output_dir, verbose)
         
         # Step 3: Generate JSON Report
-        print("\n[3/5] Generating JSON Report...")
+        logging.info("\n[3/5] Generating JSON Report...")
         results['steps']['json_report'] = generate_json_report(csv_file, output_dir, verbose)
         
         # Step 4: Generate Quality Score Report
-        print("\n[4/5] Generating Quality Score Report...")
+        logging.info("\n[4/5] Generating Quality Score Report...")
         results['steps']['quality'] = generate_quality_score_report(csv_file, output_dir, verbose)
         
         # Step 5: Export Processing Metadata
-        print("\n[5/5] Exporting Processing Metadata...")
+        logging.info("\n[5/5] Exporting Processing Metadata...")
         results['steps']['metadata'] = export_processing_metadata(csv_file, output_dir, verbose)
         
         results['pipeline_status'] = 'completed'
         
-        print("\n" + "=" * 70)
-        print("PIPELINE COMPLETED SUCCESSFULLY")
-        print("=" * 70)
-        print(f"\nGenerated Files:")
+        logging.info("\n" + "=" * 70)
+        logging.info("PIPELINE COMPLETED SUCCESSFULLY")
+        logging.info("=" * 70)
+        logging.info(f"\nGenerated Files:")
         for step, data in results['steps'].items():
             if 'output_file' in data:
-                print(f"  ✓ {step.upper()}: {os.path.basename(data['output_file'])}")
+                logging.info(f"  - {step.upper()}: {os.path.basename(data['output_file'])}")
         
         return results
         
     except Exception as e:
         results['pipeline_status'] = 'failed'
         results['error'] = str(e)
-        print(f"\n❌ Pipeline failed: {e}")
+        logging.error(f"\nPipeline failed: {e}")
+    
         raise
 
 
@@ -97,25 +113,25 @@ def process_directory(input_dir: str, output_dir: str = None, verbose: bool = Tr
     csv_files = [f for f in os.listdir(input_dir) if f.endswith('.csv')]
     
     if not csv_files:
-        print(f"No CSV files found in {input_dir}")
+        logging.info(f"No CSV files found in {input_dir}")
         return []
     
-    print(f"Found {len(csv_files)} CSV file(s) to process")
-    print()
+    logging.info(f"Found {len(csv_files)} CSV file(s) to process")
+    logging.info("")
     
     all_results = []
     
     for i, csv_file in enumerate(csv_files, 1):
         csv_path = os.path.join(input_dir, csv_file)
-        print(f"\n{'=' * 70}")
-        print(f"Processing file {i}/{len(csv_files)}: {csv_file}")
-        print(f"{'=' * 70}\n")
+        logging.info(f"\n{'=' * 70}")
+        logging.info(f"Processing file {i}/{len(csv_files)}: {csv_file}")
+        logging.info(f"{'=' * 70}\n")
         
         try:
             result = run_pipeline(csv_path, output_dir, verbose)
             all_results.append(result)
         except Exception as e:
-            print(f"Failed to process {csv_file}: {e}")
+            logging.error(f"Failed to process {csv_file}: {e}")
             all_results.append({
                 'input_file': csv_path,
                 'pipeline_status': 'failed',
@@ -123,16 +139,16 @@ def process_directory(input_dir: str, output_dir: str = None, verbose: bool = Tr
             })
     
     # Summary
-    print("\n" + "=" * 70)
-    print("BATCH PROCESSING SUMMARY")
-    print("=" * 70)
+    logging.info("\n" + "=" * 70)
+    logging.info("BATCH PROCESSING SUMMARY")
+    logging.info("=" * 70)
     
     successful = sum(1 for r in all_results if r['pipeline_status'] == 'completed')
     failed = sum(1 for r in all_results if r['pipeline_status'] == 'failed')
     
-    print(f"Total files: {len(csv_files)}")
-    print(f"Successful: {successful}")
-    print(f"Failed: {failed}")
+    logging.info(f"Total files: {len(csv_files)}")
+    logging.info(f"Successful: {successful}")
+    logging.info(f"Failed: {failed}")
     
     return all_results
 
@@ -140,11 +156,11 @@ def process_directory(input_dir: str, output_dir: str = None, verbose: bool = Tr
 if __name__ == '__main__':
     # Parse command-line arguments
     if len(sys.argv) < 2:
-        print("Usage:")
-        print("  Process single file: python pipeline.py <csv_file>")
-        print("  Process directory:   python pipeline.py --dir <input_dir> [--output <output_dir>]")
-        print()
-        print("Running with default test file...")
+        logging.info("Usage:")
+        logging.info("  Process single file: python pipeline.py <csv_file>")
+        logging.info("  Process directory:   python pipeline.py --dir <input_dir> [--output <output_dir>]")
+        logging.info("")
+        logging.info("Running with default test file...")
         csv_file = os.path.abspath('../input/csv-cleaner-example.csv')
         run_pipeline(csv_file)
         sys.exit(0)
@@ -152,7 +168,7 @@ if __name__ == '__main__':
     # Check for directory mode
     if sys.argv[1] == '--dir':
         if len(sys.argv) < 3:
-            print("Error: Please specify input directory")
+            logging.error("Error: Please specify input directory")
             sys.exit(1)
         
         input_dir = sys.argv[2]
