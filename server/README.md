@@ -1,6 +1,10 @@
 # CSV Data Processing Pipeline
 
-A comprehensive, dynamic CSV data cleaning and analysis pipeline designed for CI/CD environments like GitHub Actions.
+![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-orange.svg)
+
+CSV Data Processing Pipeline is an automated, end-to-end solution for cleaning, validating, and analyzing CSV datasets. Built with a "plug-and-play" philosophy, it features dynamic column type inference and multi-format reporting. Designed to integrate seamlessly into CI/CD workflows, it ensures your data remains consistent and high-quality by automatically processing files on every push or pull request.
 
 ## Features
 
