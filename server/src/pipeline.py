@@ -19,7 +19,8 @@ logging.basicConfig(
     handlers=[
         logging.FileHandler(os.path.join(log_dir, 'pipeline_execution.log')),
         logging.StreamHandler(sys.stdout)
-    ]
+    ],
+    force=True  # Ensures logging config is not overridden by pytest or other modules
 )
 # ---------------------
 
