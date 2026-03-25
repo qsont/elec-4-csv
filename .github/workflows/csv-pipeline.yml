@@ -112,13 +112,16 @@ jobs:
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
         
-        # Create or checkout ci-history branch
+        # Fetch the remote history branch if it exists
         if git rev-parse --verify origin/ci-history > /dev/null 2>&1; then
-          git fetch origin ci-history:ci-history
+          git fetch origin ci-history:ci-history --force
           git checkout ci-history
+          # Rebase to ensure we're on top of any remote changes
+          git rebase origin/ci-history || true
         else
+          # Create orphan branch only if it doesn't exist remotely
           git checkout --orphan ci-history
-          git rm -rf .
+          git rm -rf . 2>/dev/null || true
         fi
         
         # Ensure history.log exists
@@ -138,13 +141,13 @@ jobs:
         echo "---" >> history.log
         echo "$LOG_CONTENT" >> history.log
         
-        # Commit and push only if there are changes
-        if ! git diff-index --quiet HEAD; then
-          git add history.log
-          git commit -m "Add pipeline execution log from run #${{ github.run_number }}"
-          git push origin ci-history
-        else
+        # Commit if there are changes (handle both orphan and existing branches)
+        if git add history.log && git diff --cached --quiet; then
           echo "No changes to commit"
+        else
+          git commit -m "Add pipeline execution log from run #${{ github.run_number }}"
+          # Use force-with-lease for safety but allow orphan overwrite
+          git push origin ci-history --force-with-lease=ci-history:refs/heads/ci-history || git push origin ci-history --force
         fi
     
     # Optional: Uncomment to commit results back to repository
