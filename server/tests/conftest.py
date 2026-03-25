@@ -1,3 +1,13 @@
+import pytest
+import pandas as pd
+import os
+import tempfile
+import shutil
+
+"""
+PyTest Configuration and Shared Fixtures
+"""
+
 @pytest.fixture(scope="session")
 def input_csv_files():
     """List all CSV files in the input folder for testing."""
@@ -9,15 +19,6 @@ def input_csv_files():
 def input_csv_count(input_csv_files):
     """Return the number of CSV files in the input folder."""
     return len(input_csv_files)
-"""
-PyTest Configuration and Shared Fixtures
-"""
-
-import pytest
-import pandas as pd
-import os
-import tempfile
-import shutil
 from pathlib import Path
 
 
