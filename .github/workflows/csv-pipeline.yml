@@ -32,6 +32,7 @@ jobs:
       with:
         python-version: '3.11'
         cache: 'pip'
+        cache-dependency-path: 'server/requirements.txt'
     
     - name: Install dependencies
       run: |
@@ -94,6 +95,54 @@ jobs:
         echo "### Quality Reports:" >> $GITHUB_STEP_SUMMARY
         if [ -f "*_quality_report.csv" ]; then
           head -n 10 *_quality_report.csv >> $GITHUB_STEP_SUMMARY
+        fi
+    
+    - name: Append logs to persistent history
+      if: always()
+      run: |
+        # Configure git
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        
+        # Create or checkout ci-history branch
+        if git rev-parse --verify origin/ci-history > /dev/null 2>&1; then
+          git fetch origin ci-history:ci-history
+          git checkout ci-history
+        else
+          git checkout --orphan ci-history
+          git rm -rf .
+        fi
+        
+        # Ensure history.log exists
+        if [ ! -f "history.log" ]; then
+          echo "# Pipeline Execution History" > history.log
+        fi
+        
+        # Append execution log with metadata
+        echo "" >> history.log
+        echo "---" >> history.log
+        echo "Run ID: ${{ github.run_id }}" >> history.log
+        echo "Run Number: ${{ github.run_number }}" >> history.log
+        echo "Timestamp: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> history.log
+        echo "Branch: ${{ github.ref_name }}" >> history.log
+        echo "Commit: ${{ github.sha }}" >> history.log
+        echo "Actor: ${{ github.actor }}" >> history.log
+        echo "---" >> history.log
+        
+        # Append the pipeline execution log if it exists
+        if [ -f "../server/logs/pipeline_execution.log" ]; then
+          cat ../server/logs/pipeline_execution.log >> history.log
+        else
+          echo "Log file not found at server/logs/pipeline_execution.log" >> history.log
+        fi
+        
+        # Commit and push only if there are changes
+        if ! git diff-index --quiet HEAD; then
+          git add history.log
+          git commit -m "Add pipeline execution log from run #${{ github.run_number }}"
+          git push origin ci-history
+        else
+          echo "No changes to commit"
         fi
     
     # Optional: Uncomment to commit results back to repository
