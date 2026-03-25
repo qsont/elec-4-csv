@@ -1,0 +1,617 @@
+# Pipeline Execution History
+
+---
+Run ID: 23536792683
+Run Number: 34
+Timestamp: 2026-03-25 10:39:00 UTC
+Branch: main
+Commit: fcbe3c87c311654d627c9bc12b7cfcb653343bf7
+Actor: qsont
+---
+2026-03-25 10:38:54,394 - INFO - Input directory contents: ['NFL-Plays-Small.csv']
+2026-03-25 10:38:54,394 - INFO - Found 1 CSV file(s) to process: ['NFL-Plays-Small.csv']
+2026-03-25 10:38:54,394 - INFO - 
+2026-03-25 10:38:54,394 - INFO - 
+======================================================================
+2026-03-25 10:38:54,394 - INFO - Processing file 1/1: NFL-Plays-Small.csv
+2026-03-25 10:38:54,394 - INFO - ======================================================================
+
+2026-03-25 10:38:54,394 - INFO - ======================================================================
+2026-03-25 10:38:54,394 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:54,394 - INFO - ======================================================================
+2026-03-25 10:38:54,394 - INFO - Input File: ../input/NFL-Plays-Small.csv
+2026-03-25 10:38:54,394 - INFO - Output Directory: ../output
+2026-03-25 10:38:54,394 - INFO - ======================================================================
+2026-03-25 10:38:54,394 - INFO - 
+2026-03-25 10:38:54,395 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:54,597 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:54,629 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:54,693 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:54,712 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:54,759 - INFO - 
+======================================================================
+2026-03-25 10:38:54,759 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:54,759 - INFO - ======================================================================
+2026-03-25 10:38:54,759 - INFO - 
+Generated Files:
+2026-03-25 10:38:54,759 - INFO -   - CLEANING: NFL-Plays-Small_cleaned.csv
+2026-03-25 10:38:54,759 - INFO -   - SUMMARY: NFL-Plays-Small_summary_report.csv
+2026-03-25 10:38:54,759 - INFO -   - JSON_REPORT: NFL-Plays-Small_report.json
+2026-03-25 10:38:54,759 - INFO -   - QUALITY: NFL-Plays-Small_quality_report.csv
+2026-03-25 10:38:54,759 - INFO -   - METADATA: NFL-Plays-Small_metadata.json
+2026-03-25 10:38:54,759 - INFO - 
+======================================================================
+2026-03-25 10:38:54,759 - INFO - BATCH PROCESSING SUMMARY
+2026-03-25 10:38:54,760 - INFO - ======================================================================
+2026-03-25 10:38:54,760 - INFO - Total files: 1
+2026-03-25 10:38:54,760 - INFO - Successful: 1
+2026-03-25 10:38:54,760 - INFO - Failed: 0
+2026-03-25 10:38:56,692 - INFO - ======================================================================
+2026-03-25 10:38:56,693 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:56,693 - INFO - ======================================================================
+2026-03-25 10:38:56,693 - INFO - Input File: /tmp/tmpz85gy7g2/test_clean.csv
+2026-03-25 10:38:56,693 - INFO - Output Directory: /tmp/tmpz85gy7g2/output
+2026-03-25 10:38:56,693 - INFO - ======================================================================
+2026-03-25 10:38:56,693 - INFO - 
+2026-03-25 10:38:56,693 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:56,705 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:56,712 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:56,725 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:56,729 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:56,739 - INFO - 
+======================================================================
+2026-03-25 10:38:56,739 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:56,739 - INFO - ======================================================================
+2026-03-25 10:38:56,739 - INFO - 
+Generated Files:
+2026-03-25 10:38:56,739 - INFO -   - CLEANING: test_clean_cleaned.csv
+2026-03-25 10:38:56,739 - INFO -   - SUMMARY: test_clean_summary_report.csv
+2026-03-25 10:38:56,739 - INFO -   - JSON_REPORT: test_clean_report.json
+2026-03-25 10:38:56,740 - INFO -   - QUALITY: test_clean_quality_report.csv
+2026-03-25 10:38:56,740 - INFO -   - METADATA: test_clean_metadata.json
+2026-03-25 10:38:56,742 - INFO - ======================================================================
+2026-03-25 10:38:56,742 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:56,743 - INFO - ======================================================================
+2026-03-25 10:38:56,743 - INFO - Input File: /home/runner/work/elec-4-csv/elec-4-csv/server/input/NFL-Plays-Small.csv
+2026-03-25 10:38:56,743 - INFO - Output Directory: /tmp/tmp0eybo3i1/output
+2026-03-25 10:38:56,743 - INFO - ======================================================================
+2026-03-25 10:38:56,743 - INFO - 
+2026-03-25 10:38:56,743 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,149 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,184 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,265 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,285 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,341 - INFO - 
+======================================================================
+2026-03-25 10:38:57,341 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,341 - INFO - ======================================================================
+2026-03-25 10:38:57,341 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,342 - INFO -   - CLEANING: NFL-Plays-Small_cleaned.csv
+2026-03-25 10:38:57,342 - INFO -   - SUMMARY: NFL-Plays-Small_summary_report.csv
+2026-03-25 10:38:57,342 - INFO -   - JSON_REPORT: NFL-Plays-Small_report.json
+2026-03-25 10:38:57,342 - INFO -   - QUALITY: NFL-Plays-Small_quality_report.csv
+2026-03-25 10:38:57,342 - INFO -   - METADATA: NFL-Plays-Small_metadata.json
+2026-03-25 10:38:57,346 - INFO - ======================================================================
+2026-03-25 10:38:57,346 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,346 - INFO - ======================================================================
+2026-03-25 10:38:57,346 - INFO - Input File: /tmp/tmpbgpm80f2/test_clean.csv
+2026-03-25 10:38:57,346 - INFO - Output Directory: /tmp/tmpbgpm80f2/output
+2026-03-25 10:38:57,346 - INFO - ======================================================================
+2026-03-25 10:38:57,347 - INFO - 
+2026-03-25 10:38:57,347 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,358 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,365 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,379 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,382 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,392 - INFO - 
+======================================================================
+2026-03-25 10:38:57,392 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,393 - INFO - ======================================================================
+2026-03-25 10:38:57,393 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,393 - INFO -   - CLEANING: test_clean_cleaned.csv
+2026-03-25 10:38:57,393 - INFO -   - SUMMARY: test_clean_summary_report.csv
+2026-03-25 10:38:57,393 - INFO -   - JSON_REPORT: test_clean_report.json
+2026-03-25 10:38:57,393 - INFO -   - QUALITY: test_clean_quality_report.csv
+2026-03-25 10:38:57,393 - INFO -   - METADATA: test_clean_metadata.json
+2026-03-25 10:38:57,397 - INFO - ======================================================================
+2026-03-25 10:38:57,397 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,397 - INFO - ======================================================================
+2026-03-25 10:38:57,397 - INFO - Input File: /tmp/tmpdb24y66e/test_clean.csv
+2026-03-25 10:38:57,397 - INFO - Output Directory: /tmp/tmpdb24y66e/output
+2026-03-25 10:38:57,397 - INFO - ======================================================================
+2026-03-25 10:38:57,397 - INFO - 
+2026-03-25 10:38:57,397 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,409 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,416 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,430 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,433 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,443 - INFO - 
+======================================================================
+2026-03-25 10:38:57,443 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,443 - INFO - ======================================================================
+2026-03-25 10:38:57,444 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,444 - INFO -   - CLEANING: test_clean_cleaned.csv
+2026-03-25 10:38:57,444 - INFO -   - SUMMARY: test_clean_summary_report.csv
+2026-03-25 10:38:57,444 - INFO -   - JSON_REPORT: test_clean_report.json
+2026-03-25 10:38:57,444 - INFO -   - QUALITY: test_clean_quality_report.csv
+2026-03-25 10:38:57,444 - INFO -   - METADATA: test_clean_metadata.json
+2026-03-25 10:38:57,448 - INFO - ======================================================================
+2026-03-25 10:38:57,448 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,448 - INFO - ======================================================================
+2026-03-25 10:38:57,448 - INFO - Input File: /tmp/tmp5ox2aof_/test_messy.csv
+2026-03-25 10:38:57,448 - INFO - Output Directory: /tmp/tmp5ox2aof_/output
+2026-03-25 10:38:57,448 - INFO - ======================================================================
+2026-03-25 10:38:57,448 - INFO - 
+2026-03-25 10:38:57,448 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,461 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,468 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,482 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,486 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,496 - INFO - 
+======================================================================
+2026-03-25 10:38:57,496 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,496 - INFO - ======================================================================
+2026-03-25 10:38:57,496 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,497 - INFO -   - CLEANING: test_messy_cleaned.csv
+2026-03-25 10:38:57,497 - INFO -   - SUMMARY: test_messy_summary_report.csv
+2026-03-25 10:38:57,497 - INFO -   - JSON_REPORT: test_messy_report.json
+2026-03-25 10:38:57,497 - INFO -   - QUALITY: test_messy_quality_report.csv
+2026-03-25 10:38:57,497 - INFO -   - METADATA: test_messy_metadata.json
+2026-03-25 10:38:57,501 - INFO - ======================================================================
+2026-03-25 10:38:57,501 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,501 - INFO - ======================================================================
+2026-03-25 10:38:57,501 - INFO - Input File: /tmp/tmpawk5q7an/test_clean.csv
+2026-03-25 10:38:57,501 - INFO - Output Directory: /tmp/tmpawk5q7an/output
+2026-03-25 10:38:57,501 - INFO - ======================================================================
+2026-03-25 10:38:57,501 - INFO - 
+2026-03-25 10:38:57,501 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,513 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,519 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,533 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,536 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,547 - INFO - 
+======================================================================
+2026-03-25 10:38:57,547 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,547 - INFO - ======================================================================
+2026-03-25 10:38:57,547 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,547 - INFO -   - CLEANING: test_clean_cleaned.csv
+2026-03-25 10:38:57,547 - INFO -   - SUMMARY: test_clean_summary_report.csv
+2026-03-25 10:38:57,547 - INFO -   - JSON_REPORT: test_clean_report.json
+2026-03-25 10:38:57,547 - INFO -   - QUALITY: test_clean_quality_report.csv
+2026-03-25 10:38:57,547 - INFO -   - METADATA: test_clean_metadata.json
+2026-03-25 10:38:57,550 - INFO - ======================================================================
+2026-03-25 10:38:57,550 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,550 - INFO - ======================================================================
+2026-03-25 10:38:57,550 - INFO - Input File: non_existent.csv
+2026-03-25 10:38:57,550 - INFO - Output Directory: /tmp/tmpsbr60wwz/output
+2026-03-25 10:38:57,550 - INFO - ======================================================================
+2026-03-25 10:38:57,550 - INFO - 
+2026-03-25 10:38:57,550 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,550 - ERROR - 
+Pipeline failed: CSV file not found: non_existent.csv
+2026-03-25 10:38:57,554 - INFO - ======================================================================
+2026-03-25 10:38:57,554 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,554 - INFO - ======================================================================
+2026-03-25 10:38:57,554 - INFO - Input File: /tmp/tmpvgvcw6q9/test_clean.csv
+2026-03-25 10:38:57,554 - INFO - Output Directory: /tmp/tmpvgvcw6q9/output
+2026-03-25 10:38:57,554 - INFO - ======================================================================
+2026-03-25 10:38:57,554 - INFO - 
+2026-03-25 10:38:57,554 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,566 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,572 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,586 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,589 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,599 - INFO - 
+======================================================================
+2026-03-25 10:38:57,600 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,600 - INFO - ======================================================================
+2026-03-25 10:38:57,600 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,600 - INFO -   - CLEANING: test_clean_cleaned.csv
+2026-03-25 10:38:57,600 - INFO -   - SUMMARY: test_clean_summary_report.csv
+2026-03-25 10:38:57,600 - INFO -   - JSON_REPORT: test_clean_report.json
+2026-03-25 10:38:57,600 - INFO -   - QUALITY: test_clean_quality_report.csv
+2026-03-25 10:38:57,600 - INFO -   - METADATA: test_clean_metadata.json
+2026-03-25 10:38:57,605 - INFO - Input directory contents: ['test_0.csv', 'test_2.csv', 'output', 'test_1.csv']
+2026-03-25 10:38:57,605 - INFO - Found 3 CSV file(s) to process: ['test_0.csv', 'test_2.csv', 'test_1.csv']
+2026-03-25 10:38:57,605 - INFO - 
+2026-03-25 10:38:57,605 - INFO - 
+======================================================================
+2026-03-25 10:38:57,605 - INFO - Processing file 1/3: test_0.csv
+2026-03-25 10:38:57,605 - INFO - ======================================================================
+
+2026-03-25 10:38:57,606 - INFO - ======================================================================
+2026-03-25 10:38:57,606 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,606 - INFO - ======================================================================
+2026-03-25 10:38:57,606 - INFO - Input File: /tmp/tmprw6bom0t/test_0.csv
+2026-03-25 10:38:57,606 - INFO - Output Directory: /tmp/tmprw6bom0t/output
+2026-03-25 10:38:57,606 - INFO - ======================================================================
+2026-03-25 10:38:57,606 - INFO - 
+2026-03-25 10:38:57,606 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,611 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,616 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,624 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,627 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,633 - INFO - 
+======================================================================
+2026-03-25 10:38:57,633 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,633 - INFO - ======================================================================
+2026-03-25 10:38:57,633 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,633 - INFO -   - CLEANING: test_0_cleaned.csv
+2026-03-25 10:38:57,633 - INFO -   - SUMMARY: test_0_summary_report.csv
+2026-03-25 10:38:57,633 - INFO -   - JSON_REPORT: test_0_report.json
+2026-03-25 10:38:57,633 - INFO -   - QUALITY: test_0_quality_report.csv
+2026-03-25 10:38:57,633 - INFO -   - METADATA: test_0_metadata.json
+2026-03-25 10:38:57,633 - INFO - 
+======================================================================
+2026-03-25 10:38:57,634 - INFO - Processing file 2/3: test_2.csv
+2026-03-25 10:38:57,634 - INFO - ======================================================================
+
+2026-03-25 10:38:57,634 - INFO - ======================================================================
+2026-03-25 10:38:57,634 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,634 - INFO - ======================================================================
+2026-03-25 10:38:57,634 - INFO - Input File: /tmp/tmprw6bom0t/test_2.csv
+2026-03-25 10:38:57,634 - INFO - Output Directory: /tmp/tmprw6bom0t/output
+2026-03-25 10:38:57,634 - INFO - ======================================================================
+2026-03-25 10:38:57,634 - INFO - 
+2026-03-25 10:38:57,634 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,639 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,644 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,652 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,655 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,661 - INFO - 
+======================================================================
+2026-03-25 10:38:57,661 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,661 - INFO - ======================================================================
+2026-03-25 10:38:57,661 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,661 - INFO -   - CLEANING: test_2_cleaned.csv
+2026-03-25 10:38:57,661 - INFO -   - SUMMARY: test_2_summary_report.csv
+2026-03-25 10:38:57,661 - INFO -   - JSON_REPORT: test_2_report.json
+2026-03-25 10:38:57,661 - INFO -   - QUALITY: test_2_quality_report.csv
+2026-03-25 10:38:57,661 - INFO -   - METADATA: test_2_metadata.json
+2026-03-25 10:38:57,661 - INFO - 
+======================================================================
+2026-03-25 10:38:57,661 - INFO - Processing file 3/3: test_1.csv
+2026-03-25 10:38:57,662 - INFO - ======================================================================
+
+2026-03-25 10:38:57,662 - INFO - ======================================================================
+2026-03-25 10:38:57,662 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,662 - INFO - ======================================================================
+2026-03-25 10:38:57,662 - INFO - Input File: /tmp/tmprw6bom0t/test_1.csv
+2026-03-25 10:38:57,662 - INFO - Output Directory: /tmp/tmprw6bom0t/output
+2026-03-25 10:38:57,662 - INFO - ======================================================================
+2026-03-25 10:38:57,662 - INFO - 
+2026-03-25 10:38:57,662 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,667 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,672 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,680 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,683 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,689 - INFO - 
+======================================================================
+2026-03-25 10:38:57,689 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,689 - INFO - ======================================================================
+2026-03-25 10:38:57,689 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,689 - INFO -   - CLEANING: test_1_cleaned.csv
+2026-03-25 10:38:57,689 - INFO -   - SUMMARY: test_1_summary_report.csv
+2026-03-25 10:38:57,689 - INFO -   - JSON_REPORT: test_1_report.json
+2026-03-25 10:38:57,689 - INFO -   - QUALITY: test_1_quality_report.csv
+2026-03-25 10:38:57,689 - INFO -   - METADATA: test_1_metadata.json
+2026-03-25 10:38:57,689 - INFO - 
+======================================================================
+2026-03-25 10:38:57,690 - INFO - BATCH PROCESSING SUMMARY
+2026-03-25 10:38:57,690 - INFO - ======================================================================
+2026-03-25 10:38:57,690 - INFO - Total files: 3
+2026-03-25 10:38:57,690 - INFO - Successful: 3
+2026-03-25 10:38:57,690 - INFO - Failed: 0
+2026-03-25 10:38:57,693 - INFO - Input directory contents: ['output']
+2026-03-25 10:38:57,693 - INFO - No CSV files found in /tmp/tmp3n0cupwc. If you expected files, check your commit and workflow paths.
+2026-03-25 10:38:57,696 - INFO - Input directory contents: ['test.csv', 'output']
+2026-03-25 10:38:57,696 - INFO - Found 1 CSV file(s) to process: ['test.csv']
+2026-03-25 10:38:57,696 - INFO - 
+2026-03-25 10:38:57,696 - INFO - 
+======================================================================
+2026-03-25 10:38:57,696 - INFO - Processing file 1/1: test.csv
+2026-03-25 10:38:57,696 - INFO - ======================================================================
+
+2026-03-25 10:38:57,696 - INFO - ======================================================================
+2026-03-25 10:38:57,696 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,696 - INFO - ======================================================================
+2026-03-25 10:38:57,696 - INFO - Input File: /tmp/tmpfjjwt2_z/test.csv
+2026-03-25 10:38:57,696 - INFO - Output Directory: /tmp/tmpfjjwt2_z/output
+2026-03-25 10:38:57,697 - INFO - ======================================================================
+2026-03-25 10:38:57,697 - INFO - 
+2026-03-25 10:38:57,697 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,702 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,706 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,715 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,717 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,723 - INFO - 
+======================================================================
+2026-03-25 10:38:57,723 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,723 - INFO - ======================================================================
+2026-03-25 10:38:57,724 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,724 - INFO -   - CLEANING: test_cleaned.csv
+2026-03-25 10:38:57,724 - INFO -   - SUMMARY: test_summary_report.csv
+2026-03-25 10:38:57,724 - INFO -   - JSON_REPORT: test_report.json
+2026-03-25 10:38:57,724 - INFO -   - QUALITY: test_quality_report.csv
+2026-03-25 10:38:57,724 - INFO -   - METADATA: test_metadata.json
+2026-03-25 10:38:57,724 - INFO - 
+======================================================================
+2026-03-25 10:38:57,724 - INFO - BATCH PROCESSING SUMMARY
+2026-03-25 10:38:57,724 - INFO - ======================================================================
+2026-03-25 10:38:57,724 - INFO - Total files: 1
+2026-03-25 10:38:57,724 - INFO - Successful: 1
+2026-03-25 10:38:57,724 - INFO - Failed: 0
+2026-03-25 10:38:57,727 - INFO - Input directory contents: ['valid.csv', 'invalid.csv', 'output']
+2026-03-25 10:38:57,727 - INFO - Found 2 CSV file(s) to process: ['valid.csv', 'invalid.csv']
+2026-03-25 10:38:57,728 - INFO - 
+2026-03-25 10:38:57,728 - INFO - 
+======================================================================
+2026-03-25 10:38:57,728 - INFO - Processing file 1/2: valid.csv
+2026-03-25 10:38:57,728 - INFO - ======================================================================
+
+2026-03-25 10:38:57,728 - INFO - ======================================================================
+2026-03-25 10:38:57,728 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,728 - INFO - ======================================================================
+2026-03-25 10:38:57,728 - INFO - Input File: /tmp/tmp71zm1wnf/valid.csv
+2026-03-25 10:38:57,728 - INFO - Output Directory: /tmp/tmp71zm1wnf/output
+2026-03-25 10:38:57,729 - INFO - ======================================================================
+2026-03-25 10:38:57,729 - INFO - 
+2026-03-25 10:38:57,729 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,733 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,737 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,743 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,746 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,750 - INFO - 
+======================================================================
+2026-03-25 10:38:57,750 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,750 - INFO - ======================================================================
+2026-03-25 10:38:57,750 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,750 - INFO -   - CLEANING: valid_cleaned.csv
+2026-03-25 10:38:57,750 - INFO -   - SUMMARY: valid_summary_report.csv
+2026-03-25 10:38:57,750 - INFO -   - JSON_REPORT: valid_report.json
+2026-03-25 10:38:57,751 - INFO -   - QUALITY: valid_quality_report.csv
+2026-03-25 10:38:57,751 - INFO -   - METADATA: valid_metadata.json
+2026-03-25 10:38:57,751 - INFO - 
+======================================================================
+2026-03-25 10:38:57,751 - INFO - Processing file 2/2: invalid.csv
+2026-03-25 10:38:57,751 - INFO - ======================================================================
+
+2026-03-25 10:38:57,751 - INFO - ======================================================================
+2026-03-25 10:38:57,751 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,751 - INFO - ======================================================================
+2026-03-25 10:38:57,751 - INFO - Input File: /tmp/tmp71zm1wnf/invalid.csv
+2026-03-25 10:38:57,751 - INFO - Output Directory: /tmp/tmp71zm1wnf/output
+2026-03-25 10:38:57,751 - INFO - ======================================================================
+2026-03-25 10:38:57,751 - INFO - 
+2026-03-25 10:38:57,752 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,762 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,767 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,775 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,778 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,785 - INFO - 
+======================================================================
+2026-03-25 10:38:57,786 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,786 - INFO - ======================================================================
+2026-03-25 10:38:57,786 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,786 - INFO -   - CLEANING: invalid_cleaned.csv
+2026-03-25 10:38:57,786 - INFO -   - SUMMARY: invalid_summary_report.csv
+2026-03-25 10:38:57,786 - INFO -   - JSON_REPORT: invalid_report.json
+2026-03-25 10:38:57,786 - INFO -   - QUALITY: invalid_quality_report.csv
+2026-03-25 10:38:57,786 - INFO -   - METADATA: invalid_metadata.json
+2026-03-25 10:38:57,786 - INFO - 
+======================================================================
+2026-03-25 10:38:57,786 - INFO - BATCH PROCESSING SUMMARY
+2026-03-25 10:38:57,786 - INFO - ======================================================================
+2026-03-25 10:38:57,787 - INFO - Total files: 2
+2026-03-25 10:38:57,787 - INFO - Successful: 2
+2026-03-25 10:38:57,787 - INFO - Failed: 0
+2026-03-25 10:38:57,790 - INFO - Input directory contents: ['test.txt', 'test.csv', 'output']
+2026-03-25 10:38:57,790 - INFO - Found 1 CSV file(s) to process: ['test.csv']
+2026-03-25 10:38:57,790 - INFO - 
+2026-03-25 10:38:57,790 - INFO - 
+======================================================================
+2026-03-25 10:38:57,790 - INFO - Processing file 1/1: test.csv
+2026-03-25 10:38:57,790 - INFO - ======================================================================
+
+2026-03-25 10:38:57,790 - INFO - ======================================================================
+2026-03-25 10:38:57,791 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,791 - INFO - ======================================================================
+2026-03-25 10:38:57,791 - INFO - Input File: /tmp/tmpzodxsaff/test.csv
+2026-03-25 10:38:57,791 - INFO - Output Directory: /tmp/tmpzodxsaff/output
+2026-03-25 10:38:57,791 - INFO - ======================================================================
+2026-03-25 10:38:57,791 - INFO - 
+2026-03-25 10:38:57,791 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,794 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,798 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,804 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,806 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,811 - INFO - 
+======================================================================
+2026-03-25 10:38:57,811 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,811 - INFO - ======================================================================
+2026-03-25 10:38:57,811 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,811 - INFO -   - CLEANING: test_cleaned.csv
+2026-03-25 10:38:57,811 - INFO -   - SUMMARY: test_summary_report.csv
+2026-03-25 10:38:57,811 - INFO -   - JSON_REPORT: test_report.json
+2026-03-25 10:38:57,811 - INFO -   - QUALITY: test_quality_report.csv
+2026-03-25 10:38:57,811 - INFO -   - METADATA: test_metadata.json
+2026-03-25 10:38:57,812 - INFO - 
+======================================================================
+2026-03-25 10:38:57,812 - INFO - BATCH PROCESSING SUMMARY
+2026-03-25 10:38:57,812 - INFO - ======================================================================
+2026-03-25 10:38:57,812 - INFO - Total files: 1
+2026-03-25 10:38:57,812 - INFO - Successful: 1
+2026-03-25 10:38:57,812 - INFO - Failed: 0
+2026-03-25 10:38:57,817 - INFO - ======================================================================
+2026-03-25 10:38:57,817 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,817 - INFO - ======================================================================
+2026-03-25 10:38:57,817 - INFO - Input File: /tmp/tmpx6_lx09l/test_clean.csv
+2026-03-25 10:38:57,817 - INFO - Output Directory: /tmp/tmpx6_lx09l/output
+2026-03-25 10:38:57,817 - INFO - ======================================================================
+2026-03-25 10:38:57,817 - INFO - 
+2026-03-25 10:38:57,818 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,829 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,836 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,849 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,853 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,863 - INFO - 
+======================================================================
+2026-03-25 10:38:57,863 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,863 - INFO - ======================================================================
+2026-03-25 10:38:57,863 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,863 - INFO -   - CLEANING: test_clean_cleaned.csv
+2026-03-25 10:38:57,863 - INFO -   - SUMMARY: test_clean_summary_report.csv
+2026-03-25 10:38:57,863 - INFO -   - JSON_REPORT: test_clean_report.json
+2026-03-25 10:38:57,864 - INFO -   - QUALITY: test_clean_quality_report.csv
+2026-03-25 10:38:57,864 - INFO -   - METADATA: test_clean_metadata.json
+2026-03-25 10:38:57,867 - INFO - ======================================================================
+2026-03-25 10:38:57,868 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,868 - INFO - ======================================================================
+2026-03-25 10:38:57,868 - INFO - Input File: /tmp/tmpu2fh9l72/test_messy.csv
+2026-03-25 10:38:57,868 - INFO - Output Directory: /tmp/tmpu2fh9l72/output
+2026-03-25 10:38:57,868 - INFO - ======================================================================
+2026-03-25 10:38:57,868 - INFO - 
+2026-03-25 10:38:57,868 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,882 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,890 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,903 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,907 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,918 - INFO - 
+======================================================================
+2026-03-25 10:38:57,918 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,918 - INFO - ======================================================================
+2026-03-25 10:38:57,918 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,918 - INFO -   - CLEANING: test_messy_cleaned.csv
+2026-03-25 10:38:57,918 - INFO -   - SUMMARY: test_messy_summary_report.csv
+2026-03-25 10:38:57,918 - INFO -   - JSON_REPORT: test_messy_report.json
+2026-03-25 10:38:57,918 - INFO -   - QUALITY: test_messy_quality_report.csv
+2026-03-25 10:38:57,918 - INFO -   - METADATA: test_messy_metadata.json
+2026-03-25 10:38:57,922 - INFO - ======================================================================
+2026-03-25 10:38:57,922 - INFO - CSV PROCESSING PIPELINE
+2026-03-25 10:38:57,923 - INFO - ======================================================================
+2026-03-25 10:38:57,923 - INFO - Input File: /tmp/tmp0q237udr/test_clean.csv
+2026-03-25 10:38:57,923 - INFO - Output Directory: /tmp/tmp0q237udr/output
+2026-03-25 10:38:57,923 - INFO - ======================================================================
+2026-03-25 10:38:57,923 - INFO - 
+2026-03-25 10:38:57,923 - INFO - 
+[1/5] Running CSV Cleaning...
+2026-03-25 10:38:57,935 - INFO - 
+[2/5] Generating Summary Report...
+2026-03-25 10:38:57,942 - INFO - 
+[3/5] Generating JSON Report...
+2026-03-25 10:38:57,955 - INFO - 
+[4/5] Generating Quality Score Report...
+2026-03-25 10:38:57,959 - INFO - 
+[5/5] Exporting Processing Metadata...
+2026-03-25 10:38:57,969 - INFO - 
+======================================================================
+2026-03-25 10:38:57,969 - INFO - PIPELINE COMPLETED SUCCESSFULLY
+2026-03-25 10:38:57,969 - INFO - ======================================================================
+2026-03-25 10:38:57,969 - INFO - 
+Generated Files:
+2026-03-25 10:38:57,969 - INFO -   - CLEANING: test_clean_cleaned.csv
+2026-03-25 10:38:57,970 - INFO -   - SUMMARY: test_clean_summary_report.csv
+2026-03-25 10:38:57,970 - INFO -   - JSON_REPORT: test_clean_report.json
+2026-03-25 10:38:57,970 - INFO -   - QUALITY: test_clean_quality_report.csv
+2026-03-25 10:38:57,970 - INFO -   - METADATA: test_clean_metadata.json
