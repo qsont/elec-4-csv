@@ -9,8 +9,10 @@ addopts = [
     "--tb=short",
     "--cov=src",
     "--cov-report=term-missing",
-    "--cov-report=html",
+    "--cov-report=html:logs/htmlcov",
 ]
+[tool.coverage.html]
+directory = "logs/htmlcov"
 
 [tool.coverage.run]
 source = ["src"]

@@ -15,13 +15,13 @@ from pipeline import run_pipeline, process_directory
 class TestRunPipeline:
     """Tests for main pipeline function."""
     
-    @pytest.mark.parametrize("csv_file_fixture", ["sample_csv_clean", "input_csv_files"], indirect=True)
-    def test_run_pipeline_success(self, csv_file_fixture, output_dir):
+    @pytest.mark.parametrize("csv_file", ["sample_csv_clean", "input_csv_files"])
+    def test_run_pipeline_success(self, request, csv_file, output_dir):
         """Test that pipeline runs successfully for sample and input CSVs."""
-        # csv_file_fixture can be a list (input_csv_files) or a single file (sample_csv_clean)
-        files = csv_file_fixture if isinstance(csv_file_fixture, list) else [csv_file_fixture]
-        for csv_file in files:
-            result = run_pipeline(csv_file, output_dir, verbose=False)
+        files = request.getfixturevalue(csv_file)
+        files = files if isinstance(files, list) else [files]
+        for f in files:
+            result = run_pipeline(f, output_dir, verbose=False)
             assert result['pipeline_status'] == 'completed'
             assert 'steps' in result
             assert len(result['steps']) == 5
