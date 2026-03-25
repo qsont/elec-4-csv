@@ -63,7 +63,15 @@ jobs:
         cd server
         pytest tests/ -v --cov=src --cov-report=term-missing
       continue-on-error: false
-    
+
+    - name: Upload pipeline logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: pipeline-logs
+        path: server/logs/pipeline_execution.log
+        retention-days: 30
+
     - name: Upload processing results
       if: always()
       uses: actions/upload-artifact@v4
@@ -73,7 +81,7 @@ jobs:
           server/output/*.csv
           server/output/*.json
         retention-days: 30
-    
+
     - name: Generate processing summary
       if: always()
       run: |
