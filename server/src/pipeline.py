@@ -17,7 +17,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(os.path.join(log_dir, 'pipeline_execution.log')),
+        logging.FileHandler(os.path.join(log_dir, 'pipeline_execution.log'), mode='a'),
         logging.StreamHandler(sys.stdout)
     ],
     force=True  # Ensures logging config is not overridden by pytest or other modules
@@ -111,13 +111,15 @@ def process_directory(input_dir: str, output_dir: str = None, verbose: bool = Tr
     Returns:
         list: Results from processing each file
     """
-    csv_files = [f for f in os.listdir(input_dir) if f.endswith('.csv')]
-    
+    dir_contents = os.listdir(input_dir)
+    logging.info(f"Input directory contents: {dir_contents}")
+    csv_files = [f for f in dir_contents if f.endswith('.csv')]
+
     if not csv_files:
-        logging.info(f"No CSV files found in {input_dir}")
+        logging.info(f"No CSV files found in {input_dir}. If you expected files, check your commit and workflow paths.")
         return []
-    
-    logging.info(f"Found {len(csv_files)} CSV file(s) to process")
+
+    logging.info(f"Found {len(csv_files)} CSV file(s) to process: {csv_files}")
     logging.info("")
     
     all_results = []
