@@ -100,6 +100,14 @@ jobs:
     - name: Append logs to persistent history
       if: always()
       run: |
+        # Capture the log content while still on the main branch
+        LOG_CONTENT=""
+        if [ -f "server/logs/pipeline_execution.log" ]; then
+          LOG_CONTENT=$(cat server/logs/pipeline_execution.log)
+        else
+          LOG_CONTENT="Log file not found at server/logs/pipeline_execution.log"
+        fi
+        
         # Configure git
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
@@ -128,13 +136,7 @@ jobs:
         echo "Commit: ${{ github.sha }}" >> history.log
         echo "Actor: ${{ github.actor }}" >> history.log
         echo "---" >> history.log
-        
-        # Append the pipeline execution log if it exists
-        if [ -f "../server/logs/pipeline_execution.log" ]; then
-          cat ../server/logs/pipeline_execution.log >> history.log
-        else
-          echo "Log file not found at server/logs/pipeline_execution.log" >> history.log
-        fi
+        echo "$LOG_CONTENT" >> history.log
         
         # Commit and push only if there are changes
         if ! git diff-index --quiet HEAD; then
