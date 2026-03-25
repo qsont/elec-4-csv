@@ -15,13 +15,16 @@ from pipeline import run_pipeline, process_directory
 class TestRunPipeline:
     """Tests for main pipeline function."""
     
-    def test_run_pipeline_success(self, sample_csv_clean, output_dir):
-        """Test that pipeline runs successfully."""
-        result = run_pipeline(sample_csv_clean, output_dir, verbose=False)
-        
-        assert result['pipeline_status'] == 'completed'
-        assert 'steps' in result
-        assert len(result['steps']) == 5
+    @pytest.mark.parametrize("csv_file_fixture", ["sample_csv_clean", "input_csv_files"], indirect=True)
+    def test_run_pipeline_success(self, csv_file_fixture, output_dir):
+        """Test that pipeline runs successfully for sample and input CSVs."""
+        # csv_file_fixture can be a list (input_csv_files) or a single file (sample_csv_clean)
+        files = csv_file_fixture if isinstance(csv_file_fixture, list) else [csv_file_fixture]
+        for csv_file in files:
+            result = run_pipeline(csv_file, output_dir, verbose=False)
+            assert result['pipeline_status'] == 'completed'
+            assert 'steps' in result
+            assert len(result['steps']) == 5
     
     def test_run_pipeline_all_steps(self, sample_csv_clean, output_dir):
         """Test that all pipeline steps are executed."""
@@ -152,34 +155,35 @@ class TestProcessDirectory:
 
 class TestPipelineIntegration:
     """Integration tests for complete pipeline."""
-    
+
+    def test_input_csv_count(self, input_csv_count, input_csv_files):
+        """Test that the number of CSV files in input folder is counted correctly."""
+        assert input_csv_count == len(input_csv_files)
+        # Optionally, print the files for debug
+        print(f"Input CSV files: {input_csv_files}")
+
     def test_end_to_end_clean_data(self, sample_csv_clean, output_dir):
         """Test end-to-end pipeline with clean data."""
         result = run_pipeline(sample_csv_clean, output_dir, verbose=False)
-        
         # Verify all outputs
         assert result['pipeline_status'] == 'completed'
         assert result['steps']['cleaning']['success']
         assert result['steps']['quality']['quality_metrics']['overall_score'] >= 90
-    
+
     def test_end_to_end_messy_data(self, sample_csv_messy, output_dir):
         """Test end-to-end pipeline with messy data."""
         result = run_pipeline(sample_csv_messy, output_dir, verbose=False)
-        
         # Should complete but with lower quality scores
         assert result['pipeline_status'] == 'completed'
         assert result['steps']['quality']['quality_metrics']['overall_score'] < 100
         assert result['steps']['cleaning']['duplicates_removed'] >= 0
-    
+
     def test_pipeline_output_consistency(self, sample_csv_clean, output_dir):
         """Test that pipeline outputs are consistent across steps."""
         result = run_pipeline(sample_csv_clean, output_dir, verbose=False)
-        
         cleaning_output = result['steps']['cleaning']['output_file']
-        
         # Read cleaned CSV
         cleaned_df = pd.read_csv(cleaning_output)
-        
         # Summary should have one row per column
         summary_output = result['steps']['summary']['output_file']
         summary_df = pd.read_csv(summary_output)

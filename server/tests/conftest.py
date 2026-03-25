@@ -1,3 +1,14 @@
+@pytest.fixture(scope="session")
+def input_csv_files():
+    """List all CSV files in the input folder for testing."""
+    input_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../input'))
+    csv_files = [os.path.join(input_dir, f) for f in os.listdir(input_dir) if f.endswith('.csv')]
+    return csv_files
+
+@pytest.fixture(scope="session")
+def input_csv_count(input_csv_files):
+    """Return the number of CSV files in the input folder."""
+    return len(input_csv_files)
 """
 PyTest Configuration and Shared Fixtures
 """
